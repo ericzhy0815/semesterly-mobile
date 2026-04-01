@@ -1,0 +1,34 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1772744063633,
+      "tag": "0000_glossy_storm",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1772749033700,
+      "tag": "0001_blue_power_man",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1772848396260,
+      "tag": "0002_puzzling_dagger",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1773000000000,
+      "tag": "0003_semester_active_schedule",
+      "breakpoints": true
+    }
+  ]
+}
