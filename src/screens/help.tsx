@@ -22,6 +22,7 @@ import {
   View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useCalendarStore } from "@/stores/calendarStore";
 
 const HELP_3DAY = [
   "The three-day strip shows your classes in time blocks. Swipe left or right to move through the week.",
@@ -37,10 +38,14 @@ const HELP_LIST = [
   "Tap an event row for the same details as in the 3-day grid.",
 ];
 
+
 export default function HelpScreen() {
   const colors = useThemeColors();
   const router = useRouter();
   const styles = createStyles(colors);
+  const calendarView = useCalendarStore((state) => state.calendarView);
+  const helpContent = calendarView === "3day" ? HELP_3DAY : HELP_LIST;
+
 
   return (
     <SafeAreaView style={styles.safeArea} edges={["top"]}>
@@ -70,17 +75,21 @@ export default function HelpScreen() {
             Tips for
           </Text>
           <Text style={[styles.modePillStrong, { color: colors.text }]}>
-            {"3-day view and list view"}
+            {calendarView == "3day" ? "3-day view":"list view"}
           </Text>
         </View>
-
-        <Text style={[styles.intro, { color: colors.textMuted }]}>
-          {HELP_3DAY}
-        </Text>
-
-        <Text style={[styles.intro, { color: colors.textMuted }]}>
-          {HELP_LIST}
-        </Text>
+        <View>
+          {helpContent.map((item, index) => (
+            <View key={index} style={styles.bulletRow}>
+              <Text style={[styles.bulletDot, { color: colors.textMuted }]}>
+                •
+              </Text>
+              <Text style={[styles.bulletText, { color: colors.text }]}>
+                {item}
+              </Text>
+            </View>
+          ))}
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
