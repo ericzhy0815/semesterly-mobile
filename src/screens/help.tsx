@@ -12,6 +12,7 @@
 
 import { useThemeColors } from "@/hooks/useThemeColors";
 import type { ThemeColors } from "@/lib/colors";
+import { useCalendarStore } from "@/stores/calendarStore";
 import Fontisto from "@expo/vector-icons/Fontisto";
 import { useRouter } from "expo-router";
 import {
@@ -41,6 +42,8 @@ export default function HelpScreen() {
   const colors = useThemeColors();
   const router = useRouter();
   const styles = createStyles(colors);
+  const { calendarView } = useCalendarStore();
+  const tips = calendarView === "3day" ? HELP_3DAY : HELP_LIST;
 
   return (
     <SafeAreaView style={styles.safeArea} edges={["top"]}>
@@ -70,17 +73,11 @@ export default function HelpScreen() {
             Tips for
           </Text>
           <Text style={[styles.modePillStrong, { color: colors.text }]}>
-            {"3-day view and list view"}
+            {calendarView === "3day" ? "3-Day View" : "List View"}
           </Text>
         </View>
 
-        <Text style={[styles.intro, { color: colors.textMuted }]}>
-          {HELP_3DAY}
-        </Text>
-
-        <Text style={[styles.intro, { color: colors.textMuted }]}>
-          {HELP_LIST}
-        </Text>
+        <Text style={[styles.intro, { color: colors.textMuted }]}>{tips}</Text>
       </ScrollView>
     </SafeAreaView>
   );
