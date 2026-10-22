@@ -4,21 +4,19 @@
     "slug": "semesterly-mobile",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./src/assets/semesterly.png",
+    "icon": "./src/assets/semesterly-icon.png",
     "scheme": "semesterlymobile",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./src/assets/semesterly.png",
-        "backgroundImage": "./src/assets/semesterly.png",
-        "monochromeImage": "./src/assets/semesterly.png"
+        "foregroundImage": "./src/assets/semesterly-icon.png",
+        "backgroundImage": "./src/assets/semesterly-icon.png",
+        "monochromeImage": "./src/assets/semesterly-icon.png"
       },
-      "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false
     },
     "plugins": [
@@ -37,7 +35,9 @@
       ],
       "expo-sqlite",
       "expo-font",
-      "expo-web-browser"
+      "expo-web-browser",
+      "expo-image",
+      "expo-status-bar"
     ],
     "experiments": {
       "typedRoutes": true,

@@ -4,7 +4,7 @@ import { db, sqlite } from "@/db/client";
 import { addDays, fromDayString } from "@/lib/date";
 import { useCalendarStore } from "@/stores/calendarStore";
 import migrations from "@/db/migrations/migrations";
-import { DarkTheme, ThemeProvider } from "@react-navigation/native";
+import { DarkTheme, ThemeProvider } from "expo-router/react-navigation";
 import { useMigrations } from "drizzle-orm/expo-sqlite/migrator";
 import { useDrizzleStudio } from "expo-drizzle-studio-plugin";
 import { Stack } from "expo-router";
